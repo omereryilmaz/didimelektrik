@@ -52,18 +52,37 @@
         "sameAs": ["https://www.facebook.com/didimelektrik/"]
     }
      </script>
-     <script type="application/ld+json">
-     {
-         "@context": "https://schema.org",
-         "@type": "BreadcrumbList",
-         "itemListElement": [{
-             "@type": "ListItem",
-             "position": 1,
-             "name": "Anasayfa",
-             "item": "https://www.didimelektrik.com"
-         }]
-     }
-     </script>
+      <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Anasayfa",
+              "item": "https://www.didimelektrik.com"
+          }]
+      }
+      </script>
+      <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Didim Emek Elektrik Hizmetleri",
+          "description": "Profesyonel elektrik hizmetleri - satış, montaj, tamirat ve bakım",
+          "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Toptan ve Perakende Satış", "url": "https://www.didimelektrik.com/servisler.html#toptan-perakende"},
+              {"@type": "ListItem", "position": 2, "name": "Elektrik Tesisatı", "url": "https://www.didimelektrik.com/servisler.html#elektrik-tesisati"},
+              {"@type": "ListItem", "position": 3, "name": "Kompanzasyon Panosu", "url": "https://www.didimelektrik.com/servisler.html#kompanzasyon"},
+              {"@type": "ListItem", "position": 4, "name": "LED Aydınlatma", "url": "https://www.didimelektrik.com/servisler.html#led-aydinlatma"},
+              {"@type": "ListItem", "position": 5, "name": "Elektrik Pano", "url": "https://www.didimelektrik.com/servisler.html#elektrik-pano"},
+              {"@type": "ListItem", "position": 6, "name": "Paratoner Hizmetleri", "url": "https://www.didimelektrik.com/servisler.html#paratoner"},
+              {"@type": "ListItem", "position": 7, "name": "Acil Elektrik Servisi", "url": "https://www.didimelektrik.com/servisler.html#acil-servis"},
+              {"@type": "ListItem", "position": 8, "name": "Periyodik Bakım", "url": "https://www.didimelektrik.com/servisler.html#bakim"},
+              {"@type": "ListItem", "position": 9, "name": "AG Kablo ve Şantiye", "url": "https://www.didimelektrik.com/servisler.html#ag-kablo"}
+          ]
+      }
+      </script>
      <script type="application/ld+json">
      {
          "@context": "https://schema.org",
@@ -210,70 +229,166 @@
             </article>
         </div>
     </section>
-    <!-- Service Section -->
-    <section class="space-medium">
+    <!-- Service Section - Comprehensive Services -->
+    <section class="space-medium" id="services-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title">
-                        <h2>Elektrik Bakım &amp; Tamirat</h2>
-                        <p>Evinizde veya işyerinizde oluşan elektrik arızaları ya da yapılması gereken montaj, kurulum ve bakım gibi tüm elektrik işlemleriniz itina ile yapılır.</p>
+                        <h2>Profesyonel Elektrik Hizmetlerimiz</h2>
+                        <p>Didim, Aydın, Muğla ve İzmir bölgesinde sunduğumuz 9 farklı elektrik hizmeti ile her türlü elektrik ihtiyacınızı karşılıyoruz. Uzman kadromuz ile güvenilir ve kaliteli çözümler.</p>
                         <div class="section-line"></div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <!-- Service 1: Toptan ve Perakende Satış -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
                     <article class="service-block">
                         <div class="service-img">
-                            <img src="./images/service_img_1.jpg" alt="Elektrik Tesisatı Bakım ve Tamirat Hizmetleri" class="img-responsive" loading="lazy">
+                            <img src="./images/service_img_1.jpg" alt="Toptan ve Perakende Elektrik Malzemeleri Satışı" class="img-responsive" loading="lazy">
                         </div>
-                        <a href="servisler.html" class="service-content">
-                            <h3 class="service-title">Elektrik Tesisatı Bakım ve Tamirat</h3>
+                        <a href="servisler.html#toptan-perakende" class="service-content" title="Toptan ve Perakende Satış Hizmetleri">
+                            <h3 class="service-title">Toptan ve Perakende Satış</h3>
+                            <p class="service-description">Yüksek kaliteli elektrik malzemeleri toptan ve perakende fiyatlarla.</p>
                             <p class="service-btn">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                             </p>
                         </a>
                     </article>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                <!-- Service 2: Elektrik Tesisatı -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
                     <article class="service-block">
                         <div class="service-img">
-                            <img src="./images/service_img_2.jpg" alt="Pano Bakım ve Tamirat Hizmetleri" class="img-responsive" loading="lazy">
+                            <img src="./images/service_img_1.jpg" alt="Elektrik Tesisatı Montaj ve Bakım" class="img-responsive" loading="lazy">
                         </div>
-                        <a href="servisler.html" class="service-content">
-                            <h3 class="service-title">Pano Bakım Tamirat</h3>
+                        <a href="servisler.html#elektrik-tesisati" class="service-content" title="Elektrik Tesisatı Montaj ve Bakım">
+                            <h3 class="service-title">Elektrik Tesisatı</h3>
+                            <p class="service-description">Bina iç ve dış elektrik tesisatı kurulum, tamirat ve bakım.</p>
                             <p class="service-btn">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                             </p>
                         </a>
                     </article>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                <!-- Service 3: Kompanzasyon Panosu -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
                     <article class="service-block">
                         <div class="service-img">
-                            <img src="./images/service_img_3.jpg" alt="Aydınlatma ve LED Hizmetleri" class="img-responsive" loading="lazy">
+                            <img src="./images/service_img_2.jpg" alt="Kompanzasyon Panosu Montajı" class="img-responsive" loading="lazy">
                         </div>
-                        <a href="servisler.html" class="service-content">
-                            <h3 class="service-title">Aydınlatma</h3>
+                        <a href="servisler.html#kompanzasyon" class="service-content" title="Kompanzasyon Panosu Tasarım ve Montaj">
+                            <h3 class="service-title">Kompanzasyon Panosu</h3>
+                            <p class="service-description">Endüstriyel tesisler için kompanzasyon hizmetleri ve enerji verimliliği.</p>
                             <p class="service-btn">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                             </p>
                         </a>
                     </article>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                <!-- Service 4: LED Aydınlatma -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
                     <article class="service-block">
                         <div class="service-img">
-                            <img src="./images/service_img_4.jpg" alt="Paratoner Hizmetleri" class="img-responsive" loading="lazy">
+                            <img src="./images/service_img_3.jpg" alt="LED Aydınlatma Sistemleri" class="img-responsive" loading="lazy">
                         </div>
-                        <a href="servisler.html" class="service-content">
-                            <h3 class="service-title">Paratoner</h3>
+                        <a href="servisler.html#led-aydinlatma" class="service-content" title="LED Aydınlatma Sistemleri Tasarım ve Montaj">
+                            <h3 class="service-title">LED Aydınlatma</h3>
+                            <p class="service-description">Enerji verimliliği sağlayan modern LED aydınlatma çözümleri.</p>
                             <p class="service-btn">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                             </p>
                         </a>
                     </article>
+                </div>
+
+                <!-- Service 5: Elektrik Pano Hizmetleri -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
+                    <article class="service-block">
+                        <div class="service-img">
+                            <img src="./images/service_img_2.jpg" alt="Elektrik Pano Hizmetleri" class="img-responsive" loading="lazy">
+                        </div>
+                        <a href="servisler.html#elektrik-pano" class="service-content" title="Elektrik Pano Tasarım ve Montaj">
+                            <h3 class="service-title">Elektrik Pano</h3>
+                            <p class="service-description">Ana ve alt dağıtım pano tasarımı, montajı ve bakımı.</p>
+                            <p class="service-btn">
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Service 6: Paratoner ve Yıldırımdan Korunma -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
+                    <article class="service-block">
+                        <div class="service-img">
+                            <img src="./images/service_img_4.jpg" alt="Paratoner ve Yıldırımdan Korunma Sistemleri" class="img-responsive" loading="lazy">
+                        </div>
+                        <a href="servisler.html#paratoner" class="service-content" title="Paratoner Montajı ve Yıldırım Koruması">
+                            <h3 class="service-title">Paratoner Hizmetleri</h3>
+                            <p class="service-description">Yıldırım koruma sistemleri ve Faraday kafesi uygulamaları.</p>
+                            <p class="service-btn">
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Service 7: 7/24 Acil Elektrik Servisi -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
+                    <article class="service-block">
+                        <div class="service-img">
+                            <img src="./images/service_img_1.jpg" alt="7/24 Acil Elektrik Servisi" class="img-responsive" loading="lazy">
+                        </div>
+                        <a href="servisler.html#acil-servis" class="service-content" title="7/24 Acil Elektrik Arıza Hizmeti">
+                            <h3 class="service-title">Acil Elektrik Servisi</h3>
+                            <p class="service-description">7 gün 24 saat acil arıza hizmeti, 30 dakika içinde yerinde müdahale.</p>
+                            <p class="service-btn">
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Service 8: Periyodik Elektrik Bakımı -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
+                    <article class="service-block">
+                        <div class="service-img">
+                            <img src="./images/service_img_2.jpg" alt="Periyodik Elektrik Bakımı ve Kontrol" class="img-responsive" loading="lazy">
+                        </div>
+                        <a href="servisler.html#bakim" class="service-content" title="Periyodik Elektrik Bakımı Hizmetleri">
+                            <h3 class="service-title">Periyodik Bakım</h3>
+                            <p class="service-description">İşletme ve konutlar için düzenli elektrik bakım hizmetleri.</p>
+                            <p class="service-btn">
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Service 9: AG Kablo ve Şantiye Elektriği -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb30">
+                    <article class="service-block">
+                        <div class="service-img">
+                            <img src="./images/service_img_5.png" alt="AG Kablo ve Şantiye Elektriği" class="img-responsive" loading="lazy">
+                        </div>
+                        <a href="servisler.html#ag-kablo" class="service-content" title="AG Kablo Çekimi ve Şantiye Elektriği">
+                            <h3 class="service-title">AG Kablo ve Şantiye</h3>
+                            <p class="service-description">Alçak gerilim kablo çekimi ve şantiye elektrik tesisatı.</p>
+                            <p class="service-btn">
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </a>
+                    </article>
+                </div>
+            </div>
+            <div class="row mt30">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <p style="font-size: 14px; color: #666;">Tüm hizmetlerimiz Didim, Aydın, Muğla ve İzmir bölgesinde verilmektedir. Detaylı bilgi için <a href="servisler.html" style="color: #ff6b35; text-decoration: none; font-weight: 600;">tüm hizmetlerimizi görüntüleyin</a>.</p>
                 </div>
             </div>
         </div>

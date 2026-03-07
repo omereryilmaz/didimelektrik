@@ -1275,9 +1275,12 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 .service-img { }
 .service-btn { position: absolute; bottom: 8px; right: 20px; font-size: 22px; }
 .service-title { margin-bottom: 0px; font-size: 22px; font-weight: 500; color: #fff; }
+.service-description { font-size: 14px; color: #ddd; margin: 10px 0; line-height: 1.5; }
+.service-content:hover .service-description { color: #333; }
 .service-quote { }
 .service-content:hover { background-color: #ffcd00; color: #2e3133; -webkit-transition: 1s ease; }
 .service-content:hover .service-title { color: #2e3133; }
+.service-content:hover .service-description { color: #333; }
 .service-block ul { margin-bottom: 20px; }
 .service-block ul li { }
 .service-block li:before { content: '\f10c'; font-family: 'FontAwesome'; font-size: 14px; position: relative; padding-right: 10px; color: #002f6c; }
