@@ -60,6 +60,7 @@ article[id] {
     scroll-margin-top: 120px;
 }
 
+#toptan-perakende,
 #elektrik-tesisati,
 #kompanzasyon,
 #led-aydinlatma,
@@ -1939,6 +1940,7 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
+    margin-bottom: 10px;
 }
 
 .contact-btn::before {
@@ -1974,9 +1976,10 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
 }
 
 .call-btn:hover {
-    background: linear-gradient(135deg, #042c60 0%, #0849a0 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #9da9b8 100%);
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 12px 28px rgba(2, 57, 129, 0.4);
+    border-color: #023981;
 }
 
 .call-btn:active {
@@ -1990,9 +1993,11 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
 }
 
 .whatsapp-btn:hover {
-    background: linear-gradient(135deg, #20BA5E 0%, #188e47 100%);
+    background: linear-gradient(135deg, #fdfdfd 0%, #94ceab 100%);
+    color: #25D366;
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+    border-color: #20BA5E;
 }
 
 .whatsapp-btn:active {
