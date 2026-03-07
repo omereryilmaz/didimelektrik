@@ -725,7 +725,7 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 }
 
 /* Mobile menu */
-/* Small Screen Navigation - Modern Design */
+/* Small Screen Navigation - Modern Hamburger Menu Design */
 #navigation.small-screen {
   width: 100%;
 }
@@ -736,18 +736,30 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   margin: 0;
   padding: 0;
   list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 999;
 }
 
 #navigation.small-screen ul.open {
   display: block;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 #navigation.small-screen > ul > li {
   width: 100%;
   position: relative;
-  border-top: 1px solid rgba(255, 205, 0, 0.1);
+  border-top: 1px solid rgba(2, 57, 129, 0.1);
   background-color: transparent;
   float: none;
+  height: auto;
 }
 
 #navigation.small-screen > ul > li:first-child {
@@ -755,28 +767,30 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 }
 
 #navigation.small-screen ul li a {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 16px 20px;
-  color: #ffffff;
+  padding: 14px 20px;
+  color: #333333;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   transition: all 0.3s ease;
   background-color: transparent;
   border: none;
+  border-left: 4px solid transparent;
 }
 
 #navigation.small-screen > ul > li > a {
   position: relative;
-  padding-right: 50px;
 }
 
 #navigation.small-screen > ul > li > a:hover,
 #navigation.small-screen > ul > li.active > a {
   background-color: rgba(255, 205, 0, 0.1);
-  color: #ffcd00;
-  padding-left: 24px;
+  color: #023981;
+  border-left-color: #ffcd00;
+  padding-left: 20px;
 }
 
 /* Submenu Styling */
@@ -786,41 +800,56 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: transparent;
-  box-shadow: none;
+  background-color: rgba(2, 57, 129, 0.03);
+  box-shadow: inset 0 2px 4px rgba(2, 57, 129, 0.05);
   border-radius: 0;
+  border-top: 1px solid rgba(2, 57, 129, 0.1);
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#navigation.small-screen ul ul.open {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
 }
 
 #navigation.small-screen ul ul li {
   width: 100%;
-  border-top: 1px solid rgba(255, 205, 0, 0.05);
+  border-top: none;
   height: auto;
 }
 
 #navigation.small-screen ul ul li a {
-  padding-left: 40px;
+  padding-left: 50px;
   font-size: 13px;
-  background-color: rgba(2, 57, 129, 0.5);
+  background-color: transparent;
+  color: #555555;
 }
 
 #navigation.small-screen ul ul li a:hover,
 #navigation.small-screen ul ul li.active > a {
-  background-color: rgba(255, 205, 0, 0.15);
-  color: #ffcd00;
-  border-left: 3px solid #ffcd00;
-  padding-left: 37px;
+  background-color: rgba(255, 205, 0, 0.08);
+  color: #023981;
+  border-left-color: #ffcd00;
+  padding-left: 50px;
 }
 
 #navigation.small-screen ul ul ul li a {
-  padding-left: 60px;
-  background-color: rgba(2, 57, 129, 0.3);
+  padding-left: 70px;
+  background-color: transparent;
+  color: #666666;
 }
 
 #navigation.small-screen ul ul ul li a:hover,
 #navigation.small-screen ul ul ul li.active > a {
-  background-color: rgba(255, 205, 0, 0.1);
-  color: #ffcd00;
-  padding-left: 57px;
+  background-color: rgba(255, 205, 0, 0.06);
+  color: #023981;
+  padding-left: 70px;
 }
 
 #navigation.small-screen > ul > li.has-sub > a:after,
@@ -830,12 +859,12 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   display: none;
 }
 
-/* Hamburger Menu Button */
+/* Hamburger Menu Button - Modern Animated Design */
 #navigation.small-screen #menu-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px 16px 20px;
+  justify-content: flex-start;
+  padding: 0;
   color: #ffffff;
   cursor: pointer;
   font-size: 13px;
@@ -843,40 +872,84 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   font-weight: 600;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid rgba(255, 205, 0, 0.2);
   transition: all 0.3s ease;
   letter-spacing: 1px;
   position: relative;
-  width: 100%;
+  width: 50px;
+  height: 50px;
   box-sizing: border-box;
 }
 
 #navigation.small-screen #menu-button:hover {
-  color: #ffcd00;
-  background-color: rgba(255, 205, 0, 0.08);
+  transform: scale(1.05);
 }
 
-/* Hamburger Icon - Three horizontal lines */
-#navigation.small-screen #menu-button:before {
-  content: '';
-  display: inline-block;
+/* Burger Lines - Three animated strokes */
+.burger-line {
   width: 24px;
   height: 2px;
   background-color: #ffffff;
-  position: relative;
-  margin-right: auto;
-  box-shadow: 0 8px 0 #ffffff, 0 16px 0 #ffffff;
-  transition: all 0.4s ease;
+  margin: 4px 0;
+  border-radius: 4px;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: absolute;
+  left: 13px;
 }
 
-#navigation.small-screen #menu-button.menu-opened:before {
-  background-color: #ffcd00;
-  box-shadow: 0 8px 0 #ffcd00, 0 16px 0 #ffcd00;
+.burger-line:nth-child(1) {
+  top: 12px;
 }
 
-#navigation.small-screen #menu-button:after {
+.burger-line:nth-child(2) {
+  top: 23px;
+}
+
+.burger-line:nth-child(3) {
+  top: 34px;
+}
+
+/* Burger lines with accent colors (subtle layering) */
+.burger-line:nth-child(1)::before {
   content: '';
-  display: none;
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: rgba(255, 205, 0, 0.3);
+  top: -1px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.burger-line:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: rgba(2, 57, 129, 0.2);
+  bottom: -1px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Active/Opened state - X transformation */
+#navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+  background-color: #ffcd00;
+}
+
+#navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-15px);
+}
+
+#navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -8px);
+  background-color: #ffcd00;
+}
+
+#navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(1)::before,
+#navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(3)::after {
+  opacity: 0;
 }
 
 /* Submenu Buttons */
@@ -893,16 +966,16 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   cursor: pointer;
   background: transparent;
   border: none;
-  border-left: 1px solid rgba(255, 205, 0, 0.15);
+  border-left: 1px solid rgba(2, 57, 129, 0.1);
   transition: all 0.3s ease;
 }
 
 #navigation.small-screen .submenu-button:hover {
-  background-color: rgba(255, 205, 0, 0.1);
+  background-color: rgba(255, 205, 0, 0.08);
 }
 
 #navigation.small-screen .submenu-button.submenu-opened {
-  background-color: rgba(255, 205, 0, 0.15);
+  background-color: rgba(255, 205, 0, 0.12);
 }
 
 /* Dropdown Arrow Indicator */
@@ -911,8 +984,8 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   display: block;
   width: 8px;
   height: 8px;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #333333;
+  border-bottom: 2px solid #333333;
   transform: rotate(-45deg);
   transition: all 0.3s ease;
 }
