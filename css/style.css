@@ -1062,7 +1062,7 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
     .sticky-contact-buttons {
         bottom: 20px;
     }
-    
+     
     .sticky-contact-buttons.show {
         right: 10px;
     }
@@ -1071,5 +1071,305 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
         width: 45px;
         height: 45px;
         font-size: 20px;
+    }
+}
+
+/* ==========================================
+   MODERN FOOTER STYLES
+   ========================================== */
+
+/* Main Footer Container */
+.footer {
+    background: linear-gradient(135deg, #1a1d1f 0%, #242729 100%);
+    padding-top: 60px;
+    padding-bottom: 0;
+    color: #a5aaad;
+    font-weight: 400;
+    border-top: 3px solid #ffcd00;
+}
+
+/* Footer Content Row */
+.footer-content {
+    margin-bottom: 40px;
+}
+
+/* Footer Widgets */
+.footer-widget {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Titles with Icons */
+.footer-title {
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+
+.footer-title i {
+    color: #ffcd00;
+    font-size: 20px;
+}
+
+/* Contact Widget */
+.footer-contact-widget .ft-contact-info {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.footer-contact-widget .ft-contact-info i {
+    color: #ffcd00;
+    font-size: 16px;
+    min-width: 20px;
+    margin-top: 2px;
+}
+
+.footer-contact-widget .ft-contact-info span,
+.footer-contact-widget .ft-contact-info a {
+    color: #a5aaad;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-contact-widget .ft-contact-info a {
+    color: #ffcd00;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-contact-widget .ft-contact-info a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-contact-widget .ft-contact-info:hover {
+    padding-left: 5px;
+}
+
+/* Services Widget */
+.footer-services-widget .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-services-widget .footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-services-widget .footer-links li a {
+    color: #a5aaad;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-services-widget .footer-links li a::before {
+    content: '→';
+    color: #ffcd00;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-services-widget .footer-links li a:hover {
+    color: #ffcd00;
+    padding-left: 8px;
+}
+
+.footer-services-widget .footer-links li a:hover::before {
+    opacity: 1;
+}
+
+/* Social Widget */
+.footer-social-widget .footer-about-text {
+    font-size: 14px;
+    color: #a5aaad;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 205, 0, 0.1);
+    border: 2px solid #ffcd00;
+    border-radius: 50%;
+    color: #ffcd00;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social-link:hover {
+    background-color: #ffcd00;
+    color: #1a1d1f;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(255, 205, 0, 0.3);
+}
+
+/* Form Control */
+.footer-widget .form-control {
+    height: 45px;
+    background-color: rgba(41, 44, 45, 0.5);
+    border: 1px solid #3d4042;
+    border-radius: 4px;
+    color: #a5aaad;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.footer-widget .form-control:focus {
+    color: #ffcd00 !important;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(255, 205, 0, 0.1);
+    border-color: #ffcd00;
+}
+
+.footer-widget .form-control::placeholder {
+    color: #808183;
+}
+
+/* Footer Top Line */
+.ft-top-line {
+    border-bottom: 1px solid #2d3032;
+    margin-bottom: 40px;
+    padding-bottom: 0;
+}
+
+/* Footer Logo */
+.ft-logo {
+    margin-bottom: 40px;
+}
+
+.ft-logo a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.ft-logo a:hover {
+    transform: scale(1.05);
+}
+
+.ft-logo img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.ft-logo a:hover img {
+    opacity: 1;
+}
+
+/* Tiny Footer */
+.tiny-footer {
+    font-size: 13px;
+    padding: 20px 0;
+    background-color: #0d0e0f;
+    border-top: 1px solid #2d3032;
+    text-align: center;
+}
+
+.tiny-footer p {
+    margin: 0;
+    color: #a5aaad;
+}
+
+.copyrightlink {
+    color: #ffcd00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyrightlink:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Responsive Footer */
+@media only screen and (max-width: 992px) {
+    .footer {
+        padding-top: 50px;
+    }
+    
+    .footer-content {
+        margin-bottom: 30px;
+    }
+    
+    .footer-widget {
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba(255, 205, 0, 0.1);
+        padding-bottom: 20px;
+    }
+    
+    .footer-widget:last-child {
+        border-bottom: none;
+    }
+    
+    .footer-title {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        padding-top: 40px;
+    }
+    
+    .footer-widget {
+        margin-bottom: 25px;
+    }
+    
+    .footer-social-icons {
+        justify-content: center;
+    }
+    
+    .footer-title {
+        justify-content: center;
+        font-size: 16px;
+    }
+    
+    .footer-contact-widget .ft-contact-info,
+    .footer-services-widget .footer-links li a {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .footer-about-text {
+        text-align: center !important;
     }
 }
