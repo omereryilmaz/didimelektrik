@@ -12,9 +12,10 @@ Author URL: https://easetemplate.com/
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 
-------------------------------------------------------------------
+ ------------------------------------------------------------------
 [CSS Table of contents]
 
+0.  Anchor Link Fix
 1.  Body / Typography 
 2.  Form Elements
 3.  Buttons
@@ -46,7 +47,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    9.2  Service Single
    ------------------------------------
 
-10.Pages
+10.Pages*/
+
+/* Anchor Link Fix - Fixed header scroll offset */
+html {
+    scroll-behavior: smooth;
+}
+
+.service-block[id],
+section[id],
+article[id] {
+    scroll-margin-top: 120px;
+}
+
+#elektrik-tesisati,
+#kompanzasyon,
+#led-aydinlatma,
+#elektrik-pano,
+#paratoner,
+#acil-servis,
+#bakim,
+#ag-kablo {
+    scroll-margin-top: 120px;
+}
 
    10.1  About
    10.2  Client Reviews
