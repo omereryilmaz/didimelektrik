@@ -446,6 +446,72 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   transition: transform 0.3s ease;
 }
 
+.logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .top-header {
+    text-align: center;
+  }
+  
+  .top-header .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .top-header .col-lg-6,
+  .top-header .col-md-6 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .logo {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .logo img {
+    max-width: 160px;
+    height: auto;
+  }
+  
+  .top-header .col-lg-3,
+  .top-header .col-md-3 {
+    display: none;
+  }
+  
+  /* Mobile navigation adjustments */
+  .header .container {
+    padding: 0 5px;
+  }
+  
+  .header .col-lg-12,
+  .header .col-md-12,
+  .header .col-sm-12,
+  .header .col-xs-12 {
+    padding: 0;
+  }
+  
+  #navigation.small-screen {
+    padding: 10px 15px;
+    min-height: 60px;
+  }
+  
+  #navigation.small-screen #menu-button {
+    right: 5px;
+    top: 50%;
+  }
+  
+  #navigation.small-screen ul {
+    top: 60px;
+  }
+}
+
 .logo:hover {
   transform: translateY(-2px);
 }
@@ -882,17 +948,19 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   border-radius: 50%;
   border: none;
   transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  position: relative;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50px;
   height: 50px;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  float: right;
-  margin: 10px 0;
+  z-index: 1000;
 }
 
 #navigation.small-screen #menu-button:hover {
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 /* Burger Lines - Exactly like sample.html */
@@ -903,20 +971,21 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   margin: 2px 0;
   border-radius: 8px;
   transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .burger-line:nth-child(1) {
-  top: 0;
+  top: 12px;
 }
 
 .burger-line:nth-child(2) {
-  top: 0;
+  top: 22px;
 }
 
 .burger-line:nth-child(3) {
-  top: 0;
+  top: 32px;
 }
 
 /* Stylized burger elements - exactly like sample.html */
