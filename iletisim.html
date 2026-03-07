@@ -173,16 +173,117 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
-                    <article class="contact-form">
-                        <div class="row">
-                                <script defer type="text/javascript" src="https://form.jotform.com/jsform/81448221773963"></script>
-                        </div>
+                    <article class="contact-form-modern">
+                        <div id="formAlert" class="form-alert"></div>
+                        <form id="contactForm" method="POST" action="js/handle-form.php" novalidate>
+                            <div class="form-group">
+                                <label for="contactName" class="required">Ad Soyad</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="contactName" 
+                                    name="name" 
+                                    placeholder="Lütfen adınız ve soyadınızı giriniz"
+                                    required
+                                    aria-required="true"
+                                >
+                                <div class="invalid-feedback">Lütfen adınız ve soyadınızı giriniz.</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="contactEmail" class="required">E-Posta Adresi</label>
+                                        <input 
+                                            type="email" 
+                                            class="form-control" 
+                                            id="contactEmail" 
+                                            name="email" 
+                                            placeholder="ornek@example.com"
+                                            required
+                                            aria-required="true"
+                                        >
+                                        <div class="invalid-feedback">Lütfen geçerli bir e-posta adresi giriniz.</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="contactPhone">Telefon Numarası</label>
+                                        <input 
+                                            type="tel" 
+                                            class="form-control" 
+                                            id="contactPhone" 
+                                            name="phone" 
+                                            placeholder="(5XX) XXX XX XX"
+                                        >
+                                        <div class="invalid-feedback">Lütfen geçerli bir telefon numarası giriniz.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactService">Hizmet Türü</label>
+                                <select class="form-control" id="contactService" name="service">
+                                    <option value="">-- Lütfen Bir Hizmet Seçiniz --</option>
+                                    <option value="elektrik-tesisati">Elektrik Tesisatı Bakım ve Tamirat</option>
+                                    <option value="pano-bakimi">Pano Bakım ve Tamirat</option>
+                                    <option value="aydinlatma">Aydınlatma ve LED Hizmetleri</option>
+                                    <option value="paratoner">Paratoner Hizmetleri</option>
+                                    <option value="acil-destek">Acil Elektrik Destek</option>
+                                    <option value="diger">Diğer Hizmetler</option>
+                                </select>
+                                <div class="invalid-feedback">Lütfen bir hizmet seçiniz.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage" class="required">Mesaj</label>
+                                <textarea 
+                                    class="form-control" 
+                                    id="contactMessage" 
+                                    name="message" 
+                                    placeholder="Sorularınız veya tekliflerinizi burada yazabilirsiniz..."
+                                    required
+                                    aria-required="true"
+                                    minlength="10"
+                                ></textarea>
+                                <div class="invalid-feedback">Lütfen en az 10 karakter ile bir mesaj giriniz.</div>
+                            </div>
+
+                            <div class="form-check">
+                                <input 
+                                    type="checkbox" 
+                                    class="form-check-input" 
+                                    id="agreeTerms" 
+                                    name="agree_terms" 
+                                    required
+                                    aria-required="true"
+                                >
+                                <label class="form-check-label" for="agreeTerms">
+                                    Kişisel verilerim işlenmesine ve iletişim kurulmak için rıza veriyorum
+                                </label>
+                                <div class="invalid-feedback">Devam etmek için rızanızı onaylamanız gerekmektedir.</div>
+                            </div>
+
+                            <button type="submit" class="btn-submit-form" id="submitBtn">
+                                <i class="fa fa-paper-plane-o" aria-hidden="true" style="margin-right: 8px;"></i> Mesaj Gönder
+                            </button>
+                        </form>
                     </article>
                 </div>
                 <div class="col-lg-offset-1 col-lg-3  col-md-offset-1 col-md-3 col-sm-5 col-xs-12">
                     <aside class="widget-cta">
                         <h3 class="widget-cta-title">Sorunuz mu var?</h3>
-                         <p>Sorularınızı belirtilen alternatif iletişim araçlarınızdan bize iletbilirsiniz. En kısa sürede size cevap vermeye çalışacağız.</p>
+                         <p>Formu doldurup gönderin, en kısa sürede size cevap vermeye çalışacağız. Telefon veya email ile de doğrudan iletişime geçebilirsiniz.</p>
+                         <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #f0f0f0;">
+                            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                                <i class="fa fa-phone" style="color: #023981; margin-right: 8px;"></i>
+                                <strong>Telefon:</strong> <a href="tel:+905336217745">(533) 621 77 45</a>
+                            </p>
+                            <p style="font-size: 13px; color: #666;">
+                                <i class="fa fa-envelope" style="color: #023981; margin-right: 8px;"></i>
+                                <strong>Email:</strong> <a href="mailto:info@didimelektrik.com">info@didimelektrik.com</a>
+                            </p>
+                         </div>
                     </aside>
                 </div>
             </div>
@@ -302,7 +403,7 @@
     </a>
 </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js" type="text/javascript" defer></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js" type="text/javascript" defer></script>
@@ -310,6 +411,174 @@
     <script type="text/javascript" src="js/jquery.sticky.js" defer></script>
     <script type="text/javascript" src="js/sticky-header.js" defer></script>
     
+    <!-- Modern Sticky Contact Buttons Script -->
+    <script>
+        (function() {
+            const stickyButtons = document.getElementById('stickyContactButtons');
+            if (stickyButtons) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        stickyButtons.classList.add('show');
+                    } else {
+                        stickyButtons.classList.remove('show');
+                    }
+                });
+                // Initial state
+                if (window.pageYOffset > 300) {
+                    stickyButtons.classList.add('show');
+                }
+            }
+        })();
+    </script>
+
+    <!-- Contact Form Validation and Submission -->
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const formAlert = document.getElementById('formAlert');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Form validation function
+            function validateForm() {
+                const form = contactForm;
+                let isValid = true;
+                
+                // Reset previous states
+                form.querySelectorAll('.form-control').forEach(field => {
+                    field.classList.remove('is-valid', 'is-invalid');
+                });
+
+                // Validate each field
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const message = document.getElementById('contactMessage').value.trim();
+                const agreeTerms = document.getElementById('agreeTerms').checked;
+
+                // Validate name
+                if (!name || name.length < 2) {
+                    document.getElementById('contactName').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactName').classList.add('is-valid');
+                }
+
+                // Validate email
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailPattern.test(email)) {
+                    document.getElementById('contactEmail').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactEmail').classList.add('is-valid');
+                }
+
+                // Validate message
+                if (!message || message.length < 10) {
+                    document.getElementById('contactMessage').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactMessage').classList.add('is-valid');
+                }
+
+                // Validate phone if provided
+                const phone = document.getElementById('contactPhone').value.trim();
+                if (phone) {
+                    const phonePattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+                    if (!phonePattern.test(phone)) {
+                        document.getElementById('contactPhone').classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        document.getElementById('contactPhone').classList.add('is-valid');
+                    }
+                }
+
+                // Validate agreement checkbox
+                if (!agreeTerms) {
+                    document.getElementById('agreeTerms').classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            // Handle form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Validate form
+                if (!validateForm()) {
+                    showAlert('Lütfen tüm gerekli alanları doğru şekilde doldurunuz.', 'error');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.classList.add('loading');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Gönderiliyor...';
+
+                // Prepare form data
+                const formData = new FormData(contactForm);
+
+                // Send form via AJAX
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showAlert('Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.', 'success');
+                        contactForm.reset();
+                        contactForm.querySelectorAll('.form-control').forEach(field => {
+                            field.classList.remove('is-valid', 'is-invalid');
+                        });
+                        
+                        // Scroll to alert
+                        formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        showAlert(data.message || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Form Error:', error);
+                    showAlert('Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.', 'error');
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('loading');
+                    submitBtn.innerHTML = originalText;
+                });
+            });
+
+            // Real-time validation
+            contactForm.querySelectorAll('.form-control').forEach(field => {
+                field.addEventListener('blur', function() {
+                    validateForm();
+                });
+                
+                field.addEventListener('input', function() {
+                    if (this.classList.contains('is-invalid')) {
+                        validateForm();
+                    }
+                });
+            });
+
+            // Show alert function
+            function showAlert(message, type) {
+                formAlert.className = `form-alert ${type} show`;
+                formAlert.textContent = message;
+                
+                // Auto-hide error alerts after 5 seconds
+                if (type === 'error') {
+                    setTimeout(() => {
+                        formAlert.classList.remove('show');
+                    }, 5000);
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>
