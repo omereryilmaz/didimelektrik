@@ -1270,17 +1270,82 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
  9.1 Services
 ---------------------------*/
 
-.service-block { margin-bottom: 30px; }
-.service-content { color: #fff; display: block; position: relative; background-color: #023981; padding: 14px 20px; }
-.service-img { }
-.service-btn { position: absolute; bottom: 8px; right: 20px; font-size: 22px; }
-.service-title { margin-bottom: 0px; font-size: 22px; font-weight: 500; color: #fff; }
-.service-description { font-size: 14px; color: #ddd; margin: 10px 0; line-height: 1.5; }
-.service-content:hover .service-description { color: #333; }
-.service-quote { }
-.service-content:hover { background-color: #ffcd00; color: #2e3133; -webkit-transition: 1s ease; }
-.service-content:hover .service-title { color: #2e3133; }
-.service-content:hover .service-description { color: #333; }
+.service-block { 
+    margin-bottom: 30px; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+.service-block:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+.service-img { 
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.service-block:hover .service-img img {
+    transform: scale(1.08);
+}
+.service-content { 
+    color: #333; 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative; 
+    background-color: #fff; 
+    padding: 24px;
+    text-decoration: none;
+}
+.service-content:hover {
+    background-color: #fff;
+}
+.service-btn { 
+    position: absolute; 
+    bottom: 20px; 
+    right: 24px; 
+    font-size: 24px;
+    color: #ff6b35;
+    transition: all 0.3s ease;
+}
+.service-content:hover .service-btn {
+    color: #ff8c5a;
+    transform: translateX(5px);
+}
+.service-title { 
+    margin-bottom: 12px; 
+    font-size: 20px; 
+    font-weight: 600; 
+    color: #002f6c;
+    transition: color 0.3s ease;
+}
+.service-content:hover .service-title {
+    color: #ff6b35;
+}
+.service-description { 
+    font-size: 14px; 
+    color: #666; 
+    margin: 0 0 12px 0; 
+    line-height: 1.6;
+    flex-grow: 1;
+    transition: color 0.3s ease;
+}
+.service-content:hover .service-description { 
+    color: #555; 
+}
 .service-block ul { margin-bottom: 20px; }
 .service-block ul li { }
 .service-block li:before { content: '\f10c'; font-family: 'FontAwesome'; font-size: 14px; position: relative; padding-right: 10px; color: #002f6c; }
