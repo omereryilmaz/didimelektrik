@@ -725,9 +725,21 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 }
 
 /* Mobile menu */
-/* Small Screen Navigation - Modern Hamburger Menu Design */
+/* Small Screen Navigation - Exact sample.html Style */
 #navigation.small-screen {
   width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+#navigation.small-screen::after {
+  content: '';
+  clear: both;
+  display: table;
 }
 
 #navigation.small-screen ul {
@@ -737,14 +749,16 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   padding: 0;
   list-style: none;
   position: absolute;
-  top: 100%;
+  top: 70px;
   left: 0;
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-20px);
+  border-radius: 0 0 24px 24px;
+  padding: 20px;
+  transform: translateY(-100%);
   opacity: 0;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 #navigation.small-screen ul.open {
@@ -756,29 +770,31 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 #navigation.small-screen > ul > li {
   width: 100%;
   position: relative;
-  border-top: 1px solid rgba(2, 57, 129, 0.1);
   background-color: transparent;
   float: none;
   height: auto;
+  border: none;
 }
 
 #navigation.small-screen > ul > li:first-child {
-  border-top: none;
+  border: none;
 }
 
 #navigation.small-screen ul li a {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 14px 20px;
+  padding: 15px;
+  margin: 8px 0;
   color: #333333;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   transition: all 0.3s ease;
-  background-color: transparent;
+  background-color: rgba(2, 57, 129, 0.08);
   border: none;
-  border-left: 4px solid transparent;
+  border-radius: 12px;
+  gap: 15px;
 }
 
 #navigation.small-screen > ul > li > a {
@@ -787,10 +803,9 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 
 #navigation.small-screen > ul > li > a:hover,
 #navigation.small-screen > ul > li.active > a {
-  background-color: rgba(255, 205, 0, 0.1);
+  background-color: rgba(255, 205, 0, 0.2);
   color: #023981;
-  border-left-color: #ffcd00;
-  padding-left: 20px;
+  transform: translateX(5px);
 }
 
 /* Submenu Styling */
@@ -799,17 +814,19 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   left: 0;
   width: 100%;
   margin: 0;
-  padding: 0;
-  background-color: rgba(2, 57, 129, 0.03);
-  box-shadow: inset 0 2px 4px rgba(2, 57, 129, 0.05);
+  padding: 0 0 0 20px;
+  background-color: transparent;
+  box-shadow: none;
   border-radius: 0;
-  border-top: 1px solid rgba(2, 57, 129, 0.1);
+  border-top: none;
   display: block !important;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
   opacity: 0;
   visibility: hidden;
+  top: 0;
+  transform: none;
 }
 
 #navigation.small-screen ul ul.open {
@@ -820,36 +837,29 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 
 #navigation.small-screen ul ul li {
   width: 100%;
-  border-top: none;
+  border: none;
   height: auto;
 }
 
 #navigation.small-screen ul ul li a {
-  padding-left: 50px;
+  padding: 12px 15px;
   font-size: 13px;
-  background-color: transparent;
+  background-color: rgba(2, 57, 129, 0.05);
   color: #555555;
+  margin: 4px 0;
+  border-radius: 8px;
 }
 
 #navigation.small-screen ul ul li a:hover,
 #navigation.small-screen ul ul li.active > a {
-  background-color: rgba(255, 205, 0, 0.08);
+  background-color: rgba(255, 205, 0, 0.15);
   color: #023981;
-  border-left-color: #ffcd00;
-  padding-left: 50px;
+  transform: translateX(5px);
 }
 
 #navigation.small-screen ul ul ul li a {
-  padding-left: 70px;
-  background-color: transparent;
-  color: #666666;
-}
-
-#navigation.small-screen ul ul ul li a:hover,
-#navigation.small-screen ul ul ul li.active > a {
-  background-color: rgba(255, 205, 0, 0.06);
-  color: #023981;
-  padding-left: 70px;
+  padding-left: 15px;
+  background-color: rgba(2, 57, 129, 0.03);
 }
 
 #navigation.small-screen > ul > li.has-sub > a:after,
@@ -859,40 +869,40 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   display: none;
 }
 
-/* Hamburger Menu Button - Modern Animated Design */
+/* Hamburger Menu Button - Exactly like sample.html */
 #navigation.small-screen #menu-button {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 12px 20px;
-  color: #ffffff;
+  justify-content: center;
+  padding: 0;
+  color: #023981;
   cursor: pointer;
-  font-size: 13px;
-  text-transform: uppercase;
-  font-weight: 600;
-  background-color: transparent;
+  font-size: 0;
+  background-color: #ffffff;
+  border-radius: 50%;
   border: none;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
+  transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   position: relative;
-  width: 100%;
-  height: auto;
+  width: 50px;
+  height: 50px;
   box-sizing: border-box;
-  min-height: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  float: right;
+  margin: 10px 0;
 }
 
 #navigation.small-screen #menu-button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-/* Burger Lines - Three animated strokes */
+/* Burger Lines - Exactly like sample.html */
 .burger-line {
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
-  margin: 4px 0;
-  border-radius: 4px;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 25px;
+  height: 3px;
+  background-color: #023981;
+  margin: 2px 0;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   position: relative;
   display: inline-block;
 }
@@ -909,43 +919,45 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   top: 0;
 }
 
-/* Burger lines with accent colors (subtle layering) */
+/* Stylized burger elements - exactly like sample.html */
 .burger-line:nth-child(1)::before {
   content: '';
   position: absolute;
-  width: 24px;
-  height: 2px;
-  background-color: rgba(255, 205, 0, 0.3);
+  width: 25px;
+  height: 3px;
+  background-color: rgba(255, 205, 0, 0.5);
   top: -1px;
-  border-radius: 4px;
+  border-radius: 8px;
+  opacity: 0.5;
   transition: all 0.3s ease;
 }
 
 .burger-line:nth-child(3)::after {
   content: '';
   position: absolute;
-  width: 24px;
-  height: 2px;
+  width: 25px;
+  height: 3px;
   background-color: rgba(2, 57, 129, 0.2);
   bottom: -1px;
-  border-radius: 4px;
+  border-radius: 8px;
+  opacity: 0.5;
   transition: all 0.3s ease;
 }
 
-/* Active/Opened state - X transformation */
+/* Active/Opened state - Exactly like sample.html */
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-  background-color: #ffcd00;
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #023981;
 }
 
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(2) {
   opacity: 0;
-  transform: translateX(-15px);
+  transform: translateX(-20px);
 }
 
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -8px);
-  background-color: #ffcd00;
+  transform: rotate(-45deg) translate(5px, -5px);
+  background-color: #023981;
 }
 
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(1)::before,
@@ -962,21 +974,20 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 56px;
-  width: 56px;
+  height: 48px;
+  width: 48px;
   cursor: pointer;
   background: transparent;
   border: none;
-  border-left: 1px solid rgba(2, 57, 129, 0.1);
   transition: all 0.3s ease;
 }
 
 #navigation.small-screen .submenu-button:hover {
-  background-color: rgba(255, 205, 0, 0.08);
+  background-color: rgba(255, 205, 0, 0.1);
 }
 
 #navigation.small-screen .submenu-button.submenu-opened {
-  background-color: rgba(255, 205, 0, 0.12);
+  background-color: rgba(255, 205, 0, 0.15);
 }
 
 /* Dropdown Arrow Indicator */
@@ -1001,13 +1012,8 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 }
 
 #navigation.small-screen ul ul .submenu-button {
-  height: 48px;
-  width: 48px;
-}
-
-#navigation.small-screen ul ul .submenu-button:after {
-  width: 6px;
-  height: 6px;
+  height: 40px;
+  width: 40px;
 }
 
 #navigation.small-screen.select-list {
