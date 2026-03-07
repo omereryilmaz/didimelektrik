@@ -1357,6 +1357,62 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 .service-block li:before { content: '\f10c'; font-family: 'FontAwesome'; font-size: 14px; position: relative; padding-right: 10px; color: #002f6c; }
 
 /*-------------------------
+ 9.1.1 Service Detail Page Styles (servisler.html)
+ Override index.html service-block styles for detail view
+---------------------------*/
+.service-detail {
+    display: block !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    margin-bottom: 60px !important;
+    height: auto !important;
+    padding: 0 !important;
+    transition: none !important;
+}
+.service-detail:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    border-left-color: transparent !important;
+}
+.service-detail h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #023981;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.service-detail p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+.service-detail ul {
+    margin-bottom: 20px;
+    list-style: none;
+    padding: 0;
+}
+.service-detail ul li {
+    padding-left: 20px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+.service-detail li:before {
+    content: '\f10c';
+    font-family: 'FontAwesome';
+    font-size: 12px;
+    position: relative;
+    padding-right: 10px;
+    color: #ffcd00 !important;
+    left: -20px;
+}
+
+/*-------------------------
  9.2 Service Single
 ---------------------------*/
 .gallery-carousel-img img { height: 520px !important; }
