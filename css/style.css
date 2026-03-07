@@ -986,3 +986,90 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
     .st-accordion .panel-title { font-size: 12px; }
     .error-title { font-size: 170px; }
 }
+/*--------------------------------
+14. Sticky Contact Buttons
+----------------------------------*/
+.sticky-contact-buttons {
+    position: fixed;
+    right: -200px;
+    bottom: 40px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: right 0.3s ease-in-out;
+}
+
+.sticky-contact-buttons.show {
+    right: 20px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.call-btn {
+    background-color: #023981;
+}
+
+.call-btn:hover {
+    background-color: #042c60;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(2, 57, 129, 0.3);
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20BA5E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+.contact-btn .btn-label {
+    position: absolute;
+    right: 65px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-btn:hover .btn-label {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 480px) {
+    .sticky-contact-buttons {
+        bottom: 20px;
+    }
+    
+    .sticky-contact-buttons.show {
+        right: 10px;
+    }
+    
+    .contact-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
