@@ -1122,7 +1122,7 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 .page-header { background: url(../images/pageheader.jpg) no-repeat; margin: 0px; padding: 0px; border: 0px; background-size: cover; background-position: center; }
 .page-caption { padding-top: 140px; padding-bottom: 93px; color: #fff; }
 .page-caption-line { background-color: #ffcd00; width: 136px; height: 3px; }
-.page-title { font-size: 50px; line-height: 1.2; color: #fff; font-weight: 500; }
+.page-title { font-size: 30px; line-height: 1.2; color: #fff; font-weight: 500; }
 .page-text { font-size: 16px; }
 .page-breadcrumb { color: #aeb1b4; line-height: 4; }
 .page-breadcrumb .breadcrumb { background-color: transparent; padding: 0px; margin-bottom: 0px; font-size: 12px; font-weight: 400; border: none; text-transform: capitalize; color: #aeb1b4; }
@@ -1848,7 +1848,7 @@ textarea.form-control {
 .st-accordion { }
 .st-accordion span { padding-right: 0px; font-size: 20px; margin-top: 3px; }
 .st-accordion .panel { box-shadow: none; }
-.st-accordion .sign { color: #20252c; padding: 0 2px; position: absolute; left: -30px; top: 2px; }
+.st-accordion .sign { color: #20252c; padding: 0 2px; position: absolute; left: -30px; top: -5px; }
 .st-accordion .accordion .panel-heading.active .sign { color: #20252c; }
 .st-accordion .panel-title { margin-top: 0; margin-bottom: 0; font-size: 18px; color: #272d2c; position: relative; font-weight: 500; line-height: 1.4; }
 .sign { color: #20252c; padding: 0 2px; top: 6px; }

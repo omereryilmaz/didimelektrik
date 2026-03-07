@@ -1002,7 +1002,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <p>Copyright © 2023 Tüm Hakkı Saklıdır <a href="https://didimelektrik.com/" target="_blank" rel="noopener noreferrer" class="copyrightlink">didimelektrik.com</a></p>
+                        <p>Copyright © <span id="yil"></span> Tüm Hakkı Saklıdır <a href="http://didimelektrik.com/" target="_blank" class="copyrightlink">didimelektrik.com</a></p>
                     </div>
                 </div>
             </div>
@@ -1049,7 +1049,9 @@
             }
         })();
     </script>
-    
+    <script>
+        document.getElementById("yil").textContent = new Date().getFullYear();
+    </script>
     <!-- FAQ Accordion Animation -->
     <script defer>
         document.addEventListener('DOMContentLoaded', function() {

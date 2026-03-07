@@ -89,7 +89,7 @@
     <section class="page-header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
                     <div class="page-caption">
                         <h1 class="page-title">Bizimle İletişime Geçin</h1>
                         <p class="page-text">Bir teklif almanız gerekiyorsa, aşağıda verilen form, email veya telefon yardımıyla bizimle iletişime geçebilirsiniz.</p>
@@ -387,7 +387,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                    <p>Copyright © 2023 Tüm Hakkı Saklıdır <a href="http://didimelektrik.com/" target="_blank" class="copyrightlink">didimelektrik.com</a></p>
+                    <p>Copyright © <span id="yil"></span> Tüm Hakkı Saklıdır <a href="http://didimelektrik.com/" target="_blank" class="copyrightlink">didimelektrik.com</a></p>
                 </div>
             </div>
             <!-- /. tiny-footer -->
@@ -435,7 +435,9 @@
             }
         })();
     </script>
-
+    <script>
+        document.getElementById("yil").textContent = new Date().getFullYear();
+    </script>
     <!-- Contact Form Validation and Submission -->
     <script defer>
         document.addEventListener('DOMContentLoaded', function() {

@@ -347,7 +347,7 @@
     <section class="page-header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
                     <div class="page-caption">
                         <h1 class="page-title">Elektrik Hizmetlerimiz</h1>
                         <p class="page-text">30+ yıllık tecrübemizle Didim ve çevresinde profesyonel elektrik hizmetleri. Arıza, bakım, montaj ve tadilat işleriniz için uzman kadromuzla hizmetinizdeyiz.</p>
@@ -689,7 +689,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <p>Copyright © 2023 Tüm Hakkı Saklıdır <a href="https://didimelektrik.com/" target="_blank" rel="noopener noreferrer" class="copyrightlink">didimelektrik.com</a></p>
+                        <p>Copyright © <span id="yil"></span> Tüm Hakkı Saklıdır <a href="http://didimelektrik.com/" target="_blank" class="copyrightlink">didimelektrik.com</a></p>
                     </div>
                 </div>
             </div>
@@ -735,6 +735,9 @@
                 }
             }
         })();
+    </script>
+    <script>
+        document.getElementById("yil").textContent = new Date().getFullYear();
     </script>
 </body>
 
