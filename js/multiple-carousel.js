@@ -1,12 +1,12 @@
 $(document).ready(function(){
     $('.owl-one').owlCarousel({
-        loop:true,
-    margin:0,
-    autoplay:true,
-    autoplayTimeout:3000,
-   Item_Width : 100,
-    nav:true,
-    navText:['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        loop: true,
+        margin: 0,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        itemWidth: 100,
+        nav: true,
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         responsive: {
             0: {
                 items: 1,
