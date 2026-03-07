@@ -989,73 +989,238 @@ background-color: #fff; line-height: 32px; border: 0px; margin-top: 0px; border-
 /*--------------------------------
 14. Sticky Contact Buttons
 ----------------------------------*/
+/* ==========================================
+   MODERN STICKY CONTACT BUTTONS
+   ========================================== */
+
 .sticky-contact-buttons {
     position: fixed;
-    right: -200px;
+    right: -250px;
     bottom: 40px;
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: right 0.3s ease-in-out;
+    gap: 12px;
+    transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .sticky-contact-buttons.show {
     right: 20px;
 }
 
+/* Contact Button Base Styles */
 .contact-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     text-decoration: none;
     color: #fff;
-    font-size: 24px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 26px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
 }
 
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.contact-btn i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.contact-btn:hover i {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* Call Button - Modern Blue */
 .call-btn {
-    background-color: #023981;
+    background: linear-gradient(135deg, #023981 0%, #0a5cbe 100%);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .call-btn:hover {
-    background-color: #042c60;
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(2, 57, 129, 0.3);
+    background: linear-gradient(135deg, #042c60 0%, #0849a0 100%);
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 12px 28px rgba(2, 57, 129, 0.4);
 }
 
+.call-btn:active {
+    transform: scale(1.08) translateY(-2px);
+}
+
+/* WhatsApp Button - Modern Green */
 .whatsapp-btn {
-    background-color: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #1eaa52 100%);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .whatsapp-btn:hover {
-    background-color: #20BA5E;
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+    background: linear-gradient(135deg, #20BA5E 0%, #188e47 100%);
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
 }
 
+.whatsapp-btn:active {
+    transform: scale(1.08) translateY(-2px);
+}
+
+/* Button Label Tooltip */
 .contact-btn .btn-label {
     position: absolute;
-    right: 65px;
-    background-color: rgba(0, 0, 0, 0.8);
+    right: 100%;
+    margin-right: 15px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%);
     color: #fff;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
     white-space: nowrap;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-btn .btn-label::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid rgba(0, 0, 0, 0.9);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
 }
 
 .contact-btn:hover .btn-label {
     opacity: 1;
+    visibility: visible;
+    transform: translateX(-10px);
+}
+
+/* Pulse Animation for Call Button */
+@keyframes pulse-call {
+    0% {
+        box-shadow: 0 6px 20px rgba(2, 57, 129, 0.2), 0 0 0 0 rgba(2, 57, 129, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(2, 57, 129, 0.2), 0 0 0 10px rgba(2, 57, 129, 0);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(2, 57, 129, 0.2), 0 0 0 20px rgba(2, 57, 129, 0);
+    }
+}
+
+/* Pulse Animation for WhatsApp Button */
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2), 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2), 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2), 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+}
+
+.call-btn {
+    animation: pulse-call 2s infinite;
+}
+
+.whatsapp-btn {
+    animation: pulse-whatsapp 2.5s infinite 0.3s;
+}
+
+.sticky-contact-buttons:hover .call-btn {
+    animation: none;
+}
+
+.sticky-contact-buttons:hover .whatsapp-btn {
+    animation: none;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .sticky-contact-buttons {
+        right: -180px;
+        bottom: 30px;
+        gap: 10px;
+    }
+    
+    .sticky-contact-buttons.show {
+        right: 15px;
+    }
+    
+    .contact-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+    
+    .contact-btn .btn-label {
+        right: 100%;
+        margin-right: 12px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .sticky-contact-buttons {
+        right: -150px;
+        bottom: 20px;
+        gap: 8px;
+    }
+    
+    .sticky-contact-buttons.show {
+        right: 12px;
+    }
+    
+    .contact-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .contact-btn:hover {
+        transform: scale(1.12) translateY(-4px);
+    }
+    
+    .contact-btn .btn-label {
+        right: 100%;
+        margin-right: 10px;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
