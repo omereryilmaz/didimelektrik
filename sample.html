@@ -1,0 +1,702 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Menu Animation</title>
+    <style>
+        :root {
+            --primary: #FF6B35; /* Orange for hamburger patty */
+            --secondary: #7DCE82; /* Fresh lettuce green */
+            --accent: #FFD23F; /* Cheese yellow */
+            --bun: #F9C49A; /* Bun color */
+            --background: #FAFAFA;
+            --text: #333333;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 700px;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            overflow-x: hidden;
+            color: var(--text);
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 700px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 10px 30px var(--shadow);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--bun) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .menu-toggle {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .burger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 2px 0;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            position: relative;
+        }
+
+        /* Stylized burger elements */
+        .burger-line:nth-child(1)::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: var(--accent);
+            top: -1px;
+            border-radius: 8px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .burger-line:nth-child(3)::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -1px;
+            border-radius: 8px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background-color: var(--primary);
+        }
+
+        .menu-toggle.active .burger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .menu-toggle.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+            background-color: var(--primary);
+        }
+
+        .menu-toggle.active .burger-line:nth-child(1)::before,
+        .menu-toggle.active .burger-line:nth-child(3)::after {
+            opacity: 0;
+        }
+
+        .menu {
+            position: absolute;
+            top: 90px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 0 0 24px 24px;
+            padding: 20px;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            z-index: 5;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .menu-item {
+            padding: 15px;
+            margin: 8px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: rgba(249, 196, 154, 0.1);
+        }
+
+        .menu-item:hover {
+            background-color: rgba(249, 196, 154, 0.2);
+            transform: translateX(5px);
+        }
+
+        .menu-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .menu-item:nth-child(2) .menu-item-icon {
+            background-color: var(--primary);
+        }
+
+        .menu-item:nth-child(3) .menu-item-icon {
+            background-color: var(--secondary);
+        }
+
+        .menu-item-text {
+            flex: 1;
+        }
+
+        .menu-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .menu-item-desc {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+            background-color: #fff;
+            transition: opacity 0.3s ease;
+        }
+
+        .content.dim {
+            opacity: 0.7;
+        }
+
+        .featured-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .food-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+
+        .food-img {
+            height: 120px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 15px;
+        }
+
+        .food-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .food-desc {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .food-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .food-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .food-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .food-rating svg {
+            width: 15px;
+            height: 15px;
+            fill: var(--accent);
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 5px 0 15px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category {
+            min-width: 80px;
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px var(--shadow);
+        }
+
+        .category.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .category-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Dark mode support - adapting for low light conditions */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #1E1E1E;
+                --text: #FAFAFA;
+                --shadow: rgba(0, 0, 0, 0.3);
+            }
+
+            body {
+                background-color: var(--background);
+            }
+
+            .content {
+                background-color: #2A2A2A;
+            }
+
+            .menu, .food-card, .category {
+                background-color: #2A2A2A;
+            }
+
+            .menu-item-desc, .food-desc {
+                color: #AAAAAA;
+            }
+
+            .menu-toggle {
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        /* Animation for burger transform */
+        @keyframes burgerBounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-item {
+                padding: 10px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21.47,4.35L20.13,3.79V12.82L22.56,6.96C22.97,5.94 22.5,4.77 21.47,4.35M1.97,8.05L6.93,20C7.24,20.77 7.97,21.24 8.74,21.26C9,21.26 9.27,21.21 9.53,21.1L16.9,18.05C17.65,17.74 18.11,17 18.13,16.26C18.14,16 18.09,15.71 18,15.45L13,3.5C12.71,2.73 11.97,2.26 11.19,2.25C10.93,2.25 10.67,2.31 10.42,2.4L3.06,5.45C2.04,5.87 1.55,7.04 1.97,8.05M18.12,4.25A2,2 0 0,0 16.12,2.25H14.67L18.12,10.59"/>
+                    </svg>
+                </div>
+                <span>FreshBite</span>
+            </div>
+            <div class="menu-toggle">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+        </header>
+
+        <div class="menu">
+            <div class="menu-item">
+                <div class="menu-item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">Home</div>
+                    <div class="menu-item-desc">Featured dishes and special offers</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">My Orders</div>
+                    <div class="menu-item-desc">Track current and past deliveries</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">Profile</div>
+                    <div class="menu-item-desc">Preferences and payment methods</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="categories">
+                <div class="category active">
+                    <div class="category-icon">🍔</div>
+                    <div class="category-name">Burgers</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">🍕</div>
+                    <div class="category-name">Pizza</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">🥗</div>
+                    <div class="category-name">Salads</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">🍜</div>
+                    <div class="category-name">Noodles</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">🍰</div>
+                    <div class="category-name">Desserts</div>
+                </div>
+            </div>
+
+            <div class="featured-section">
+                <h2 class="section-title">Today's Specials</h2>
+                <div class="featured-grid">
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Craft Burger" class="food-img">
+                        <div class="tag">20% OFF</div>
+                        <div class="food-info">
+                            <h3 class="food-title">Craft Smash Burger</h3>
+                            <p class="food-desc">Double patty with artisanal cheese and house sauce</p>
+                            <div class="food-meta">
+                                <div class="food-price">$12.99</div>
+                                <div class="food-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                                    </svg>
+                                    4.9
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Veggie Burger" class="food-img">
+                        <div class="food-info">
+                            <h3 class="food-title">Garden Delight Burger</h3>
+                            <p class="food-desc">Plant-based patty with avocado and mixed greens</p>
+                            <div class="food-meta">
+                                <div class="food-price">$10.99</div>
+                                <div class="food-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                                    </svg>
+                                    4.7
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Loaded Fries" class="food-img">
+                        <div class="food-info">
+                            <h3 class="food-title">Truffle Parmesan Fries</h3>
+                            <p class="food-desc">Hand-cut fries with truffle oil and aged parmesan</p>
+                            <div class="food-meta">
+                                <div class="food-price">$6.99</div>
+                                <div class="food-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                                    </svg>
+                                    4.8
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shake" class="food-img">
+                        <div class="food-info">
+                            <h3 class="food-title">Berry Bliss Shake</h3>
+                            <p class="food-desc">Mixed berries and vanilla ice cream shake</p>
+                            <div class="food-meta">
+                                <div class="food-price">$5.99</div>
+                                <div class="food-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                                    </svg>
+                                    4.6
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+            const content = document.querySelector('.content');
+            const categories = document.querySelectorAll('.category');
+            const foodCards = document.querySelectorAll('.food-card');
+
+            // Menu toggle interaction
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menu.classList.toggle('active');
+                content.classList.toggle('dim');
+                
+                // Burger animation
+                if (this.classList.contains('active')) {
+                    this.style.animation = 'burgerBounce 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6)';
+                } else {
+                    this.style.animation = 'burgerBounce 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6) reverse';
+                }
+            });
+
+            // Add hover effect for burger lines
+            menuToggle.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    document.querySelector('.burger-line:nth-child(1)').style.width = '20px';
+                    document.querySelector('.burger-line:nth-child(3)').style.width = '15px';
+                }
+            });
+
+            menuToggle.addEventListener('mouseleave', function() {
+                document.querySelectorAll('.burger-line').forEach(line => {
+                    line.style.width = '25px';
+                });
+            });
+
+            // Category selection
+            categories.forEach(category => {
+                category.addEventListener('click', function() {
+                    categories.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Add a subtle animation to food cards on category change
+                    foodCards.forEach((card, index) => {
+                        card.style.animation = `fadeIn 0.3s ease forwards ${index * 0.1}s`;
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.animation = '';
+                        }, 300 + (index * 100));
+                    });
+                });
+            });
+
+            // Add hover effect for menu items
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+
+                item.addEventListener('click', function() {
+                    menuToggle.click(); // Close menu when item is clicked
+                });
+            });
+
+            // Add card hover effect
+            foodCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menu.contains(event.target) && !menuToggle.contains(event.target) && menu.classList.contains('active')) {
+                    menuToggle.click();
+                }
+            });
+
+            // Prevent actual form submissions
+            document.addEventListener('submit', function(event) {
+                event.preventDefault();
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
