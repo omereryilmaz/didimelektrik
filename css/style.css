@@ -446,14 +446,19 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   transition: transform 0.3s ease;
 }
 
+.logo {
+  transition: transform 0.3s ease;
+}
+
 .logo img {
-  max-width: 200px;
+  max-width: 220px;
   height: auto;
 }
 
 @media (max-width: 768px) {
   .top-header {
     text-align: center;
+    padding: 10px 0;
   }
   
   .top-header .row {
@@ -466,17 +471,18 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   .top-header .col-md-6 {
     width: 100%;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
   
   .logo {
     text-align: center;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    padding: 5px 0;
   }
   
   .logo img {
-    max-width: 160px;
+    max-width: 180px;
     height: auto;
   }
   
@@ -485,9 +491,21 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
     display: none;
   }
   
-  /* Mobile navigation adjustments */
+  /* Mobile navigation adjustments - Remove spacing */
+  .header {
+    padding: 0;
+    margin: 0;
+  }
+  
   .header .container {
-    padding: 0 5px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .header .row {
+    margin: 0;
   }
   
   .header .col-lg-12,
@@ -495,11 +513,19 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   .header .col-sm-12,
   .header .col-xs-12 {
     padding: 0;
+    margin: 0;
+  }
+  
+  .navigation {
+    padding: 0;
+    margin: 0;
   }
   
   #navigation.small-screen {
-    padding: 10px 15px;
-    min-height: 60px;
+    padding: 8px 10px;
+    min-height: 50px;
+    margin: 0;
+    background: linear-gradient(135deg, #023981 0%, #034fa9 100%);
   }
   
   #navigation.small-screen #menu-button {
@@ -508,7 +534,8 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   }
   
   #navigation.small-screen ul {
-    top: 60px;
+    top: 50px;
+    border-radius: 0;
   }
 }
 
@@ -1013,19 +1040,19 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   transition: all 0.3s ease;
 }
 
-/* Active/Opened state - Exactly like sample.html */
+/* Active/Opened state - Fixed X animation */
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: translateX(-50%) rotate(45deg) translate(5px, 5px);
   background-color: #023981;
 }
 
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(2) {
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-50%) translateX(-20px);
 }
 
 #navigation.small-screen #menu-button.menu-opened .burger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: translateX(-50%) rotate(-45deg) translate(5px, -5px);
   background-color: #023981;
 }
 
