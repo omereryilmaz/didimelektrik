@@ -1061,6 +1061,22 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
   margin-bottom: -40px;
   position: relative;
   overflow: hidden;
+  min-height: 580px;
+  background-color: #f9f9f9;
+}
+
+.slider .owl-carousel {
+  display: flex;
+}
+
+/* Ensure slider loads properly on page load */
+.slider .owl-item {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.slider .owl-item.active {
+  opacity: 1;
 }
 
 /* Slider Image Section */
