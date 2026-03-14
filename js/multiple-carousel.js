@@ -30,43 +30,23 @@ function initializeSliders() {
                 startPosition: 0,
                 items: 1,
                 responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 1
-                    },
-                    1000: {
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    },
-                    1400: {
-                        items: 1
-                    },
-                    1600: {
-                        items: 1
-                    },
-                    1800: {
-                        items: 1
-                    }
+                    0: { items: 1 },
+                    600: { items: 1 },
+                    1000: { items: 1 },
+                    1200: { items: 1 },
+                    1400: { items: 1 },
+                    1600: { items: 1 },
+                    1800: { items: 1 }
                 },
                 onInitialize: function(event) {
-                    // Ensure active slide captions are visible on load
                     var $captions = $('.owl-item.active .slider-captions');
                     $captions.stop(true, true).css('opacity', 0).fadeIn(400);
                 },
                 onChange: function(event) {
-                    // Add smooth animation to captions on slide change
                     var $captions = $('.owl-item.active .slider-captions');
                     $captions.stop(true, true).fadeOut(100).fadeIn(600);
                     var $images = $('.owl-item.active .slider-img img');
-                    $images.stop(true, true).css({
-                        'transform': 'scale(1.05)'
-                    }).animate({
-                        'opacity': 1
-                    }, 800, function() {
+                    $images.stop(true, true).css({ 'transform': 'scale(1.05)' }).animate({ 'opacity': 1 }, 800, function() {
                         $(this).css('transform', 'scale(1)');
                     });
                 }
@@ -154,55 +134,3 @@ if (typeof jQuery !== 'undefined') {
         initializeSliders();
     });
 }
-}
-
- $('.owl-post-gallery').owlCarousel({
-
-       loop:true,
-    margin:0,
-    autoplay:true,
-    autoplayTimeout:3000,
-
-    nav:true,
-    navText:['<i class="icon-back-arrow-circular-symbol"></i>', '<i class="icon-right-arrow-circular-button"></i>'],
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:1
-            },
-            1000:{
-                items:1
-            }
-        }
-    });
- $('.owl-Four').owlCarousel({
-
-       loop:true,
-    margin:0,
-    autoplay:true,
-    autoplayTimeout:3000,
-
-    nav:false,
-    navText:['<i class="icon-back-2"></i>', '<i class="icon-next-4"></i>'],
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:1
-            },
-            1000:{
-                items:1
-            }
-        }
-    });
-
-
-
-
-
-
-    
-});
